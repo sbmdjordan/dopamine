@@ -13,13 +13,13 @@
     --paper: #EBE2D0;
     --ink: #1B1B1B;
     --ink-soft: #4A4843;
-    --gold: #C8A95B;
-    --peak: #D8593B;        /* warm coral — dopamine peak */
-    --peak-soft: #F5DACF;
+    --gold: #113a1e;
+    --peak: #001026;        /* warm coral — dopamine peak */
+    --peak-soft: #CFD3DA;
     --low: #5B6F7C;         /* cool slate — crash / low baseline */
     --low-soft: #D6DDE2;
-    --growth: #2F5D45;      /* forest — effort-built baseline */
-    --growth-soft: #DCE7DF;
+    --growth: #113a1e;      /* forest — effort-built baseline */
+    --growth-soft: #D5DDD0;
     --shadow: 0 4px 0 rgba(27,27,27,0.08);
   }
   * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -535,8 +535,8 @@
     <div class="mark">
       <svg viewBox="0 0 80 80">
         <circle cx="40" cy="40" r="36" fill="none" stroke="#1B1B1B" stroke-width="1.5"/>
-        <path d="M12 50 Q 26 50, 28 38 T 40 30 Q 52 30, 54 18" fill="none" stroke="#D8593B" stroke-width="2.5" stroke-linecap="round"/>
-        <circle cx="54" cy="18" r="3.5" fill="#D8593B"/>
+        <path d="M12 50 Q 26 50, 28 38 T 40 30 Q 52 30, 54 18" fill="none" stroke="#001026" stroke-width="2.5" stroke-linecap="round"/>
+        <circle cx="54" cy="18" r="3.5" fill="#001026"/>
         <path d="M54 18 Q 56 36, 50 50 T 38 62 Q 26 62, 22 70" fill="none" stroke="#5B6F7C" stroke-width="2" stroke-linecap="round" stroke-dasharray="3 3"/>
       </svg>
     </div>
@@ -598,15 +598,15 @@
       <p class="anatomy-title">Anatomy of one spike</p>
       <svg viewBox="0 0 500 190" preserveAspectRatio="xMidYMid meet" style="width: 100%; height: auto; display: block;">
         <!-- Starting baseline -->
-        <line x1="0" y1="85" x2="500" y2="85" stroke="#C8A95B" stroke-width="1.5" stroke-dasharray="4 4"/>
-        <text x="6" y="78" font-family="DM Sans" font-size="10" fill="#C8A95B">starting baseline</text>
+        <line x1="0" y1="85" x2="500" y2="85" stroke="#113a1e" stroke-width="1.5" stroke-dasharray="4 4"/>
+        <text x="6" y="78" font-family="DM Sans" font-size="10" fill="#113a1e">starting baseline</text>
 
         <!-- The curve: flat → peak → crash → new baseline -->
         <path d="M 0 85 L 75 85 C 100 85, 115 30, 135 30 C 155 30, 175 145, 210 145 C 245 145, 270 100, 295 100 L 500 100"
-              fill="none" stroke="#D8593B" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+              fill="none" stroke="#001026" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
 
         <!-- 1. PEAK label -->
-        <circle cx="135" cy="30" r="3.5" fill="#D8593B" stroke="#1B1B1B" stroke-width="1"/>
+        <circle cx="135" cy="30" r="3.5" fill="#001026" stroke="#1B1B1B" stroke-width="1"/>
         <line x1="135" y1="24" x2="135" y2="16" stroke="#1B1B1B" stroke-width="0.8"/>
         <text x="135" y="12" text-anchor="middle" font-family="DM Sans" font-size="10" font-weight="700" fill="#1B1B1B">1. PEAK</text>
 
@@ -954,7 +954,7 @@
 
     // original baseline (gold dashed) — positioned high so we have room for baseline drift below
     const origBaselineY = h * 0.32;
-    sctx.strokeStyle = '#C8A95B';
+    sctx.strokeStyle = '#113a1e';
     sctx.lineWidth = 1.5;
     sctx.setLineDash([4, 4]);
     sctx.beginPath();
@@ -964,7 +964,7 @@
     sctx.setLineDash([]);
 
     // label on the right so peaks on the left don't collide with it
-    sctx.fillStyle = '#C8A95B';
+    sctx.fillStyle = '#113a1e';
     sctx.font = '11px DM Sans';
     sctx.textAlign = 'right';
     sctx.fillText('original baseline', w - 6, origBaselineY - 6);
@@ -972,7 +972,7 @@
 
     if (spikeHistory.length === 0) {
       // flat line at baseline
-      sctx.strokeStyle = '#D8593B';
+      sctx.strokeStyle = '#001026';
       sctx.lineWidth = 2.5;
       sctx.beginPath();
       sctx.moveTo(0, origBaselineY);
@@ -986,7 +986,7 @@
     let x = 0;
     let lastY = origBaselineY;
 
-    sctx.strokeStyle = '#D8593B';
+    sctx.strokeStyle = '#001026';
     sctx.lineWidth = 2.5;
     sctx.beginPath();
     sctx.moveTo(0, lastY);
@@ -1077,7 +1077,7 @@
 
     // original baseline
     const origY = h * 0.45;
-    spctx.strokeStyle = '#C8A95B';
+    spctx.strokeStyle = '#113a1e';
     spctx.setLineDash([4, 4]);
     spctx.lineWidth = 1.5;
     spctx.beginPath();
@@ -1086,14 +1086,14 @@
     spctx.stroke();
     spctx.setLineDash([]);
 
-    spctx.fillStyle = '#C8A95B';
+    spctx.fillStyle = '#113a1e';
     spctx.font = '11px DM Sans';
     spctx.fillText('original baseline', 6, origY - 5);
 
     // draw 7 declining spikes
     const N = 7;
     const segW = w / N;
-    spctx.strokeStyle = '#D8593B';
+    spctx.strokeStyle = '#001026';
     spctx.lineWidth = 2.5;
     spctx.beginPath();
 
